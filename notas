@@ -1,0 +1,106 @@
+como servidor recibimos solicitudes y resolvemos solicitudes, para una solicitud en particular vamos a poder definir un flujo de etapas 
+#MIDDLEWARES
+inicio -> a |->b -c-> end
+
+a b c d son middlewares inicio en el tiempo y end s
+middleware es una funcion siempre es una funcion
+uno de estos midlewares es servir servicio estatico servilo de esta carpeta o podr´ia hacer algo que agregue custumizado son etapas
+
+ cualquier aplicacion express es cualquier conjunto de midleware uno definde el orden
+
+ npm start
+
+ como creo una aplicacion express es algo vacio,an app.js
+
+ como agrego un midlewar agrego un use
+
+ middleware externos hace el loguin de la aplicacion que loguee
+
+ express recibe la solicitud y responder solicitud
+
+ dada una solicitud parsea el body app.use(bodyParser.json()); app.js midleware si no esta no tendria esa funcionalidad
+
+ app.use(express.static(path.join(__dirname, 'public'))); como se sirve el contenido estatico mediante el midleware mediante una ruta
+
+ ayudando a hacer solicitudes http,abstracciones resultan ser utiles respecto el body interpretar lo que el cliente manda
+
+ separa ensima de los modulos
+
+voy a llamar funciones 
+app.use('/', routes);
+app.use('/users', users);
+
+una funcion recibe una
+
+cada una de estas etapas podia continuar o no midleware si la solicitud tiene un error represente una , leer la soli, esta persona corresponde si corresponla dejo continuar sino corto, cortar el flujo previo
+
+
+//vistas la seteeo en 
+a logueo
+
+a| ->b
+ |c
+------------------------rutas
+modulos es la forma de definir que voy a exportar yo
+
+routes index.js
+outer.get('/', function(req, res, next) {   renderiza sus vistas
+
+mostra esta vista
+* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });// esta persona sabe donde esta index  vistas 
+});
+
+
+
+module.exports = router;
+
+las vistas setea en app.js
+* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
+module.exports = router;
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+la aplicacion express
+views/ index.hbs
+
+esto es un modulo y devuelve un objeto y lo encehufo a uses en apps.js
+
+lo unico que cambia es el body
+-----
+1509
+los modulos de node no se comitean
+
+requiere template si quiere backend template se renderice en backend uno o dos servidor uno se hace cargo del frontend y otro backend  se hace con una ruta
+
+
+rpc es una accion post con mongo redirect formulario api
+
+devuelve como api 
+ funciones son m´etodos de obj
+
+ debuguear
+ node inspector node --debug y en otra node inspector le 
+
+ moca  test runner chai escribirlo spect
+ mongoose-- orm plano  para validar los esquemas
+
+ se puede separar en dos servidores para tener el cliente y otr
+
+por cada archivo de routes tengo un directorio
+
+
+----------------
+connection
+lo uso en users 
+
+static scope dynamic scope
+
+cuatro reglas con this no se setea cosas con scope global--
+modulo.export a traves de una key devuelve
+
