@@ -1,15 +1,9 @@
+
 var express = require('express');
 var router = express.Router();
-var users ={
-    user1:{
-        name:'pepe',
-        email:'pepe@gmail.com'
-    },
-    user2:{
-        name:'pablo',
-        email:'pablo@gmail.com'
-    }
-};
+var db = require('../db');
+
+/*
 router.get('/:userId', function(req, res, next){
         res.render('user',{
             id:req.params.userId,
@@ -17,19 +11,53 @@ router.get('/:userId', function(req, res, next){
             email:users[req.params.userId].email
         });    
 });
+*/
 /*
 mandar name y email que que correspondan al user de la solicitud
 */
+
 router.get('/userlist', function (req, res){
-  
+  var collection = db.get().collection('userlist');
   console.log("get: ");
   console.log(req.body);
-  res.json(users);
+  
+  collection.find().toArray(function(err, docs) {
+    console.log("entro");
+    res.json(docs);
+  })
+  
   
 });
 
+router.post('/adduser', function(req, res) {
+    
+    
+   db.get().collection('userlist').insert(req.body,function(err){
+    console.log('entro|1111');
+        res.send(
+
+
+
+            (err === null) ? { msg: '' } : { msg: err }
+        );
+    });
+});
+
+router.delete('/deleteuser/:id', function(req, res) {
+
+    var collection = db.get().collection('userlist');
+    console.log(req.params.id);
+    var userToDelete = req.params.id;
+    collection.remove({ '_id' : userToDelete }, function(err) {
+        res.send((err === null) ? { msg: '' } : { msg:'error: ' + err });
+    });
+});
+
+
+
 
 /* GET users listing. */
+
 router.get('/', function(req, res, next) {
   res.render('user');
 });

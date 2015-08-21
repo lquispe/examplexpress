@@ -25,7 +25,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/userlist', function (req, res){
   
-  console.log("get: ");
+  console.log("get:es el index ");
   console.log(req.body);
   res.json(users);
   
